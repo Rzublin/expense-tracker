@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "16a4c15fc3a4680d968a319dee69c362",
+    "revision": "e4721c314d878e85156f53989a869421",
     "url": "/expense-tracker/index.html"
   },
   {
