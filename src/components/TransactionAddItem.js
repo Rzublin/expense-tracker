@@ -1,8 +1,11 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useContext } from "react";
+import TransactionsContext from "../store/transactions/Context";
+import * as transactionActions from "../store/transactions/actions";
 
-function TransactionAddItem({ transactions, setTransactions }) {
+function TransactionAddItem() {
   const [text, setText] = useState("");
   const [amount, setAmount] = useState(0);
+  const { dispatchTransaction } = useContext(TransactionsContext);
   return (
     <Fragment>
       <h3>Add new transaction</h3>
@@ -32,10 +35,9 @@ function TransactionAddItem({ transactions, setTransactions }) {
           onClick={(e) => {
             e.preventDefault();
             if (text && amount) {
-              setTransactions([
-                ...transactions,
-                { text, amount: Number(amount) },
-              ]);
+              dispatchTransaction(
+                transactionActions.addTransaction(text, Number(amount))
+              );
               setText("");
               setAmount("");
             }

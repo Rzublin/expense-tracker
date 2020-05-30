@@ -1,6 +1,8 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
+import TransactionsContext from "../store/transactions/Context";
 
-function Balance({ transactions }) {
+function Balance() {
+  const { transactions } = useContext(TransactionsContext);
   return (
     <Fragment>
       <h4>Your Balance</h4>
@@ -8,7 +10,7 @@ function Balance({ transactions }) {
         €{" "}
         {transactions
           .map((transaction) => transaction.amount)
-          .reduce((a, b) => a + b)}
+          .reduce((a, b) => a + b, 0)}
       </h1>
     </Fragment>
   );
