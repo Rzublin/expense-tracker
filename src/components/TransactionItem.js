@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import TransactionsContext from "../store/transactions/Context";
 import * as transactionActions from "../store/transactions/actions";
+import PropTypes from "prop-types";
 
 function TransactionItem({ transaction }) {
   const { dispatchTransaction } = useContext(TransactionsContext);
@@ -21,5 +22,9 @@ function TransactionItem({ transaction }) {
     </li>
   );
 }
+
+TransactionItem.propTypes = {
+  transaction: PropTypes.object.isRequired,
+};
 
 export default TransactionItem;
