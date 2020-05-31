@@ -6,12 +6,7 @@ function Balance() {
   return (
     <Fragment>
       <h4>Your Balance</h4>
-      <h1>
-        €{" "}
-        {transactions
-          .map((transaction) => transaction.amount)
-          .reduce((a, b) => a + b, 0)}
-      </h1>
+      <h1>€ {transactions.reduce((a, b) => a + b.amount, 0)}</h1>
     </Fragment>
   );
 }
