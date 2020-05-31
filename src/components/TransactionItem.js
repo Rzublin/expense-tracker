@@ -18,7 +18,9 @@ function TransactionItem({ transaction }) {
         X
       </button>
       <span> {transaction.text}</span>
-      <span>{transaction.amount}</span>
+      <span>
+        {transaction.amount > 0 ? "+" : "-"}€{Math.abs(transaction.amount)}
+      </span>
     </li>
   );
 }
