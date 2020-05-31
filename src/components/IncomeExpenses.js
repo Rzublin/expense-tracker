@@ -19,11 +19,13 @@ function IncomeExpenses() {
       <div>
         <h4>Expense</h4>
         <p id="money-minus" className="money minus">
-          -€{" "}
+          -€
           {transactions.length > 0
-            ? transactions
-                .filter((transaction) => transaction.amount < 0)
-                .reduce((a, b) => a + b.amount, 0)
+            ? Math.abs(
+                transactions
+                  .filter((transaction) => transaction.amount < 0)
+                  .reduce((a, b) => a + b.amount, 0)
+              )
             : 0}
         </p>
       </div>
